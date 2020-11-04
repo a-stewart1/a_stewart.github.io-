@@ -1,4 +1,10 @@
-# Allison Stewart
-## Public Health Practitioner & Researcher 
+---
+title: "Allison Stewart"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+Public Health Practitioner & Researcher 
 
 ![](https://media.giphy.com/media/Sye75bfzPZrmo/giphy.gif)
