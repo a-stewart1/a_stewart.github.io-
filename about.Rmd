@@ -2,6 +2,10 @@
 title: "About me"
 ---
 
-Sometimes you need to say a bit about the site -- how it was made, where it's hosted, where the source code can be found. 
+Hello, I am Allison Stewart. I am a Master’s of Public Health student at Columbia University Mailman School of Public Health. I have a background in Anthropology and experience working with various non-profit organizations and public health research in the U.S. and Latin America. 
 
-If this is for a project or analysis, I recommend giving some details about the R package versions that you used to create the content.
+Currently, I am a research assistant at the National Center for Disaster Preparedness at Columbia University's Earth Insitute, working on a  child-focused disaster preparedness initiative based in Puerto Rico and North Carolina. 
+
+I am passionate about contributing to public health initiatives and research that improve population health outcomes and reduce health disparities, particularly for populations affected by forced migration and complex emergencies. 
+
+For more information, you can contact me via email or refer to my LinkedIn page. 

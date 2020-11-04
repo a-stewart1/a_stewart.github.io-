@@ -13,6 +13,6 @@ navbar:
       href: https://www.linkedin.com/in/stewart-allison/
 output:
   html_document:
-    theme: cerulean 
+    theme: flatly 
   
   
