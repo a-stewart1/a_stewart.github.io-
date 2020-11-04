@@ -1,0 +1,17 @@
+name: "Allison Stewart"
+output_dir: "."
+navbar:
+  title: "Home"
+  right:
+    - text: "About me"
+      href: about.html
+    - icon: fa-envelope fa-lg
+      href: mailto:<allison.stewart@columbia.edu>
+    - icon: fa-github fa-lg
+      href: http://github.com/<a_stewart>/
+    - text: "LinkedIn"
+      href: https://www.linkedin.com/in/stewart-allison/
+output:
+  html_document: 
+  theme: slate 
+  
