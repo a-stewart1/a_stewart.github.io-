@@ -2,8 +2,7 @@
 title: "Dashboard"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
-    vertical_layout: fill
+    orientation: rows 
 ---
 
 ```{r setup, include=FALSE}
