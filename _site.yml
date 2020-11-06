@@ -11,8 +11,12 @@ navbar:
       href: http://github.com/<a_stewart>/
     - text: "LinkedIn"
       href: https://www.linkedin.com/in/stewart-allison/
+    - text: "Plotly"
+      href: dashboard.html 
 output:
   html_document:
+    toc: true 
+    toc_float: true 
     theme: flatly 
   
   

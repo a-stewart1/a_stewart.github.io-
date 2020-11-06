@@ -1,0 +1,40 @@
+# Examples of plotly 
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(p8105.datasets)
+```
+
+```{r}
+data("instacart")
+```
+
+```{r}
+plot_1 = 
+  instacart %>% 
+  group_by(product_name, department) %>% 
+  count(product_name) %>% 
+  filter(n > 3000) %>% 
+  plot_ly(x = ~product_name, y = ~n, type = "scatter", mode = "markers", color = ~product_name, alpha = 0.5)
+```
+
+
+```{r}
+plot_2 = 
+  instacart %>% 
+  count(aisle) %>% 
+  mutate(
+    aisle = factor(aisle), 
+    aisle = fct_reorder(aisle, n)) %>% 
+  plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar", colors = "viridis") 
+```
+
+```{r}
+plot_3 = 
+instacart %>% 
+ group_by(product_name, days_since_prior_order, department) %>% 
+  filter(department %in% c("dairy eggs", "produce", "beverages", "pantry", "household", "snacks", "frozen", "international")) %>% 
+  plot_ly(x = ~department, y = ~days_since_prior_order, type = "box", colors = "viridis") 
+```
+

@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -250,6 +253,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -257,6 +323,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -294,6 +370,9 @@ $(document).ready(function () {
 <li>
   <a href="https://www.linkedin.com/in/stewart-allison/">LinkedIn</a>
 </li>
+<li>
+  <a href="dashboard.html">Plotly</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -309,15 +388,15 @@ $(document).ready(function () {
 
 <div id="about-allison" class="section level1">
 <h1>About Allison</h1>
-<div id="education" class="section level2">
-<h2>Education</h2>
+<div id="education" class="section level3">
+<h3>Education</h3>
 <ul>
 <li><p><strong><em>Columbia University Mailman School of Public Health (Expected May 2021)</em></strong> Master’s of Public Health, Population &amp; Family Health, Public Health Research Methods Certification</p></li>
 <li><p><strong><em>Washington University in St. Louis, St. Louis, MO (May 2018)</em></strong> Bachelor of Arts, Major in Anthropology, Minors in Spanish and Psychological &amp; Brain Sciences</p></li>
 </ul>
 </div>
-<div id="research" class="section level2">
-<h2>Research</h2>
+<div id="research" class="section level3">
+<h3>Research</h3>
 <ul>
 <li><p><strong><em>Society and Health Research Center, Universidad Mayor, Santiago, Chile (June 2020-Present)</em></strong> Conduct qualitative coding and analysis of in-depth interviews exploring injection drug use patterns among female injection drug users in Tijuana, Mexico</p></li>
 <li><p><strong><em>National Center for Disaster Preparedness, Earth Institute, New York, NY (February 2020-Present)</em></strong> Conducted research in support of the Resilient Children Resilient Communities initiative to build child-focused disaster preparedness in communities affected by hurricanes Florence and Maria</p></li>
@@ -325,8 +404,8 @@ $(document).ready(function () {
 <li><p><strong><em>School for International Training Valparaíso, Chile and St. Louis, MO (May 2017 - May 2018)</em></strong> Conducted an independent research project on social recovery and resilience within communities affected by the Great Fire of Valparaíso, Chile of 2014; Utilized an ethnographic content analysis method to analyze data collected through semi-structured interviews, participant observation, and literature review</p></li>
 </ul>
 </div>
-<div id="professional-experience" class="section level2">
-<h2>Professional Experience</h2>
+<div id="professional-experience" class="section level3">
+<h3>Professional Experience</h3>
 <ul>
 <li><p><strong><em>Community Impact at Columbia University, New York, NY (May – August 2019, May – August 2019)</em></strong> Facilitated non-profit development and administration: tracked donations and maintained contact with major donors, planned fundraising events and Community Impact’s autumn retreat, assisted director with administrative tasks; Maintained partnerships with community organizations in Upper Manhattan</p></li>
 <li><p><strong><em>Primeros Pasos Quetzaltenango, Guatemala (September 2018-April 2019)</em></strong> Educated rural communities about hygiene, sanitation, diet, prenatal health and disease prevention; Monitored children and parents involved in nutritional recuperation program; Designed fundraising materials and prepared for upcoming fundraising events; Composed quarterly and annual reports</p></li>
@@ -340,6 +419,8 @@ $(document).ready(function () {
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -372,6 +453,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
