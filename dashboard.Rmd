@@ -1,8 +1,7 @@
 ---
 title: "Dashboard"
 output: 
-  flexdashboard::flex_dashboard:
-    orientation: rows 
+  flexdashboard::flex_dashboard
 ---
 
 ```{r setup, include=FALSE}
