@@ -11,7 +11,7 @@ library(p8105.datasets)
 library(flexdashboard)
 ```
 
-Column {data-width=650}
+Column 
 -----------------------------------------------------------------------
 
 ### Chart A
@@ -25,7 +25,7 @@ instacart %>%
   plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar", colors = "viridis")
 ```
 
-Column {data-width=350}
+Column {.tabset}
 -----------------------------------------------------------------------
 
 ### Chart B
@@ -38,7 +38,7 @@ instacart %>%
   plot_ly(x = ~product_name, y = ~n, type = "scatter", mode = "markers", color = ~product_name, alpha = 0.5)
 ```
 
-Column {data-width=350}
+Column 
 -----------------------------------------------------------------------
 
 ### Chart C
