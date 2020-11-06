@@ -20,19 +20,6 @@ Column {data-width=650}
 
 ```{r}
 instacart %>% 
-  group_by(product_name, department) %>% 
-  count(product_name) %>% 
-  filter(n > 3000) %>% 
-  plot_ly(x = ~product_name, y = ~n, type = "scatter", mode = "markers", color = ~product_name, alpha = 0.5)
-```
-
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart B
-
-```{r}
-instacart %>% 
   count(aisle) %>% 
   mutate(
     aisle = factor(aisle), 
@@ -40,7 +27,20 @@ instacart %>%
   plot_ly(x = ~aisle, y = ~n, color = ~aisle, type = "bar", colors = "viridis")
 ```
 
-Column {data-width=650}
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+instacart %>% 
+  group_by(product_name, department) %>% 
+  count(product_name) %>% 
+  filter(n > 3000) %>% 
+  plot_ly(x = ~product_name, y = ~n, type = "scatter", mode = "markers", color = ~product_name, alpha = 0.5)
+```
+
+Column {data-width=350}
 -----------------------------------------------------------------------
 
 ### Chart C
